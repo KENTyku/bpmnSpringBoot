@@ -1,6 +1,10 @@
 package com.camundaspringboot.demo;
 
 import org.camunda.bpm.engine.RuntimeService;
+import org.camunda.bpm.engine.rest.dto.converter.VariableListConverter;
+import org.camunda.bpm.engine.variable.VariableMap;
+import org.camunda.bpm.engine.variable.Variables;
+import org.camunda.bpm.model.dmn.instance.Variable;
 import org.camunda.bpm.spring.boot.starter.event.PostDeployEvent;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +30,12 @@ public class ProcessApp {
         logger.info("========================================");
         processInstanceId = runtimeService.startProcessInstanceByKey("payment-retrieval").getProcessInstanceId();
         processInstanceId = runtimeService.startProcessInstanceByKey("payment-kafka").getProcessInstanceId();
+        processInstanceId = runtimeService
+                .startProcessInstanceByKey("payment-kafka-quick",
+                        Variables.putValue("item", "Hello")
+                                .putValue("amount", 123)
+
+                ).getProcessInstanceId();
         logger.info("started instance: {}", processInstanceId);
     }
 }
