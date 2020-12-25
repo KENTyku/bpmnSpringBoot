@@ -16,7 +16,7 @@ public class SendMessageDelegate implements JavaDelegate {
         String name= delegateExecution.getBpmnModelElementInstance().getName();
         logger.info("Service task {} is executed:", taskName);
         String itemVariable = (String) delegateExecution.getVariable("item");
-        JavaKafkaProducerExample.sendMessage(itemVariable);
+        JavaKafkaProducer.sendMessage(itemVariable);
         logger.info("Service task {} is done:", taskName);
     }
 }

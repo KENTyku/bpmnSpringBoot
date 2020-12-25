@@ -10,8 +10,8 @@ import java.util.concurrent.ExecutionException;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
-public class JavaKafkaProducerExample {
-    static private final Logger logger = getLogger(JavaKafkaProducerExample.class);
+public class JavaKafkaProducer {
+    static private final Logger logger = getLogger(JavaKafkaProducer.class);
 
     static String server = "localhost:9092";
     static String topicName = "test.t.svfc.incident.claim.receiver.event";
