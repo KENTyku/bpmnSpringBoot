@@ -25,6 +25,7 @@ public class ProcessApp {
         logger.info("Successfully started Camunda Showcase");
         logger.info("========================================");
         processInstanceId = runtimeService.startProcessInstanceByKey("payment-retrieval").getProcessInstanceId();
+        processInstanceId = runtimeService.startProcessInstanceByKey("payment-kafka").getProcessInstanceId();
         logger.info("started instance: {}", processInstanceId);
     }
 }
