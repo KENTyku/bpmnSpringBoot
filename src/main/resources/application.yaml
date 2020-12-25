@@ -1,0 +1,9 @@
+camunda:
+  bpm:
+    admin-user:
+      id: demo
+      password: demo
+      first-name: Demo
+      last-name: DemoLastName
+    filter:
+      create: All tasks
